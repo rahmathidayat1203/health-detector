@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "112407729890",
+    "firebase_url": "https://applicationofhealth-default-rtdb.firebaseio.com",
+    "project_id": "applicationofhealth",
+    "storage_bucket": "applicationofhealth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112407729890:android:3bb80f743d96b8e1a670bb",
+        "android_client_info": {
+          "package_name": "com.aplikasihealthdetector.aplikasi_health_detector_rev1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112407729890-6p91camg0hlrrecvur8fgkrrmqke972f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKhdXAFCFTrGoS4L02fbJ5JsRaxqQa8N8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112407729890-6p91camg0hlrrecvur8fgkrrmqke972f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "112407729890-cmal3vb6gq5kr1vlvdsb0hg303eq477t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aplikasihealthdetector.aplikasiHealthDetectorRev1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

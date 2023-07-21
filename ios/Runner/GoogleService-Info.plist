@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>112407729890-cmal3vb6gq5kr1vlvdsb0hg303eq477t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.112407729890-cmal3vb6gq5kr1vlvdsb0hg303eq477t</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>112407729890-mvnm0a85np5v732orihcvba8op4s3roe.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC8yQoN7EB6Tnqligln67Hfm94KJiyorQ0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>112407729890</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.aplikasihealthdetector.aplikasiHealthDetectorRev1</string>
+	<key>PROJECT_ID</key>
+	<string>applicationofhealth</string>
+	<key>STORAGE_BUCKET</key>
+	<string>applicationofhealth.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:112407729890:ios:2f07208f3add56f7a670bb</string>
+	<key>DATABASE_URL</key>
+	<string>https://applicationofhealth-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
