@@ -1,3 +1,4 @@
+import 'package:aplikasi_health_detector_rev1/Screens/bottomNavBar/spo2_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -54,7 +55,9 @@ class _GulaDarahAdminState extends State<GulaDarahAdmin> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DiastolicBloodPressureChart(),
+              builder: (context) => SPO2PAGEADMIN(
+                uid: widget.uid,
+              ),
             ),
           );
         },

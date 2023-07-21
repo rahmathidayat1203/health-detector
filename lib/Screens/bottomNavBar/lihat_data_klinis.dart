@@ -50,91 +50,29 @@ class LihatDataKlinisScreen extends StatelessWidget {
                               user["tinggibadanController"]
                                   .toString()), // Convert to String
                           Text("Index Masa Tubuh : " +
-                              user["indeksmasatubuhController"]
-                                  .toString()), 
+                              user["indeksmasatubuhController"].toString()),
                           Row(
                             children: [
                               SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HeartRateGraphAdmin(
-                                            uid: user['uid'],
-                                          )));
-                            },
-                            child: Icon(Icons.data_array),
-                          ),
-                          ),
-                          
-                          SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => GulaDarahAdmin(
-                                            uid: user['uid'],
-                                          )));
-                            },
-                            child: Icon(Icons.data_array),
-                          ),
-                          ),SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SPO2PAGEADMIN(
-                                            uid: user['uid'],
-                                          )));
-                            },
-                            child: Icon(Icons.data_array),
-                          ),
-                          ),
-                          SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SuhuTubuhGrafAdmin(
-                                            uid: user['uid'],
-                                          )));
-                            },
-                            child: Icon(Icons.data_array),
-                          ),
-                          ),
-                          SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SystolikGrafAdmin(
-                                            uid: user['uid'],
-                                          )));
-                            },
-                            child: Icon(Icons.data_array),
-                          ),
-                          ),
-                          
+                                width: 50,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HeartRateGraphAdmin(
+                                                  uid: user['uid'],
+                                                )));
+                                  },
+                                  child: Icon(Icons.data_array),
+                                ),
+                              ),
                             ],
-                          )// Convert to String
+                          ) // Convert to String
                         ],
                       ),
-                      
                     ),
                   );
                 },

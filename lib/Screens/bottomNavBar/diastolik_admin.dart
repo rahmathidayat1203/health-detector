@@ -1,4 +1,4 @@
-import 'package:aplikasi_health_detector_rev1/Screens/bottomNavBar/syastolik_grafik.dart';
+import 'package:aplikasi_health_detector_rev1/Screens/bottomNavBar/gula_darah_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,16 +6,15 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 import 'diastolik_grafik.dart';
 
-class DiastolicBloodPressureChart extends StatefulWidget {
-  const DiastolicBloodPressureChart({super.key});
+class DiastolicGrafAdmin extends StatefulWidget {
+  final String uid; // Add the uid as a parameter in the constructor
+  DiastolicGrafAdmin({required this.uid, Key? key}) : super(key: key);
 
   @override
-  _DiastolicBloodPressureChartState createState() =>
-      _DiastolicBloodPressureChartState();
+  _DiastolicGrafAdminState createState() => _DiastolicGrafAdminState();
 }
 
-class _DiastolicBloodPressureChartState
-    extends State<DiastolicBloodPressureChart> {
+class _DiastolicGrafAdminState extends State<DiastolicGrafAdmin> {
   String? currentUserUid;
 
   @override
@@ -44,24 +43,25 @@ class _DiastolicBloodPressureChartState
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Diastolic Graph',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Heart Rate Graph'),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Diastolic Graph'),
-        ),
-        body: currentUserUid != null
-            ? HeartRateChart(currentUserUid!) // Use the UID obtained
-            : Center(child: CircularProgressIndicator()),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => SystolicGraph())));
-            },
-            child: Icon(Icons.arrow_right_sharp)),
+      body: currentUserUid != null
+          ? HeartRateChart(uid: widget.uid) // Use the passed uid
+          : Center(child: CircularProgressIndicator()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => GulaDarahAdmin(
+                uid: widget.uid,
+              ),
+            ),
+          );
+        },
+        child: Icon(Icons.arrow_right_sharp),
       ),
     );
   }
@@ -70,24 +70,22 @@ class _DiastolicBloodPressureChartState
 class HeartRateChart extends StatelessWidget {
   final String uid;
 
-  HeartRateChart(this.uid);
+  HeartRateChart({required this.uid}); // Receive the uid as a parameter
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
           .collection('dataKlinis')
-          .where('uid', isEqualTo: uid) // Filter based on the user's UID
+          .where('uid', isEqualTo: uid) // Filter based on the passed uid
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasData) {
           final readings = snapshot.data!.docs;
           if (readings.isEmpty) {
-            // Handle the case when no data is available for the user.
             return Center(child: Text('No heart rate data available.'));
           }
 
-          // Assuming the 'heartrate' subcollection exists in each 'dataKlinis' document.
           List<HeartRateData> data =
               readings.map((doc) => HeartRateData.fromFirestore(doc)).toList();
 
@@ -115,10 +113,9 @@ class HeartRateData {
 
   HeartRateData(this.time, this.heartRate);
 
-  // Factory constructor to convert Firestore document to HeartRateData object
   factory HeartRateData.fromFirestore(DocumentSnapshot doc) {
     Timestamp timestamp = doc['timestamp'];
-    int heartRate = doc['dia'];
+    int heartRate = doc['heartrate'];
     DateTime createdAtDate =
         DateTime.fromMillisecondsSinceEpoch(timestamp.seconds * 1000);
     return HeartRateData(createdAtDate, heartRate);

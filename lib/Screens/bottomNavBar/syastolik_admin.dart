@@ -124,6 +124,7 @@
 //     return HeartRateData(createdAtDate, heartRate);
 //   }
 // }
+import 'package:aplikasi_health_detector_rev1/Screens/bottomNavBar/hear_rate_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -180,7 +181,9 @@ class _SystolikGrafAdminState extends State<SystolikGrafAdmin> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DiastolicBloodPressureChart(),
+              builder: (context) => HeartRateGraphAdmin(
+                uid: widget.uid,
+              ),
             ),
           );
         },

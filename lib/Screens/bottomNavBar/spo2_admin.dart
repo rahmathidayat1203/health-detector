@@ -1,3 +1,4 @@
+import 'package:aplikasi_health_detector_rev1/Screens/bottomNavBar/suhu_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -54,7 +55,9 @@ class _SPO2PAGEADMINState extends State<SPO2PAGEADMIN> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DiastolicBloodPressureChart(),
+              builder: (context) => SuhuTubuhGrafAdmin(
+                uid: widget.uid,
+              ),
             ),
           );
         },

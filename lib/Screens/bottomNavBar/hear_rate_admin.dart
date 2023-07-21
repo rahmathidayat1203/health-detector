@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import 'diastolik_admin.dart';
 import 'diastolik_grafik.dart';
 
 class HeartRateGraphAdmin extends StatefulWidget {
@@ -54,7 +55,9 @@ class _HeartRateGraphAdminState extends State<HeartRateGraphAdmin> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DiastolicBloodPressureChart(),
+              builder: (context) => DiastolicGrafAdmin(
+                uid: widget.uid,
+              ),
             ),
           );
         },

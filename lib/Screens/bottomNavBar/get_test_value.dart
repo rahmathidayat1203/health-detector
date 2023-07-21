@@ -105,10 +105,10 @@ class _RealtimeDataWidgetState extends State<RealtimeDataWidget> {
     // Get the current user from FirebaseAuth
     user = auth.currentUser;
   }
-  
-  Future<void> postDataKadarGula(String hr,String ir,String red,String spo2) async{
-    final String apiUrl =
-        'http://warda.pythonanywhere.com/gula_darah';
+
+  Future<void> postDataKadarGula(
+      String hr, String ir, String red, String spo2) async {
+    final String apiUrl = 'http://warda.pythonanywhere.com/gula_darah';
 
     Map<String, dynamic> data = {
       'HR': int.tryParse(hr),
@@ -144,9 +144,6 @@ class _RealtimeDataWidgetState extends State<RealtimeDataWidget> {
       // Error occurred during the HTTP request, handle the exception
       print('Error: $e');
     }
-
-
-    
   }
 
   Future<void> postDataDeteksi(
@@ -338,7 +335,6 @@ class _RealtimeDataWidgetState extends State<RealtimeDataWidget> {
                     ElevatedButton(
                       onPressed: () {
                         if (user != null) {
-                          
                           postDataDeteksi(
                             heartRate,
                             diastolic,
@@ -355,9 +351,11 @@ class _RealtimeDataWidgetState extends State<RealtimeDataWidget> {
                       },
                       child: Text('Cek'),
                     ),
-                    ElevatedButton(onPressed: (){
-                      print("Nilai Gula Darah : ${responseDataGulaDarah.toString()}");
-                      DataKlinis dataklinis = DataKlinis(
+                    ElevatedButton(
+                        onPressed: () {
+                          print(
+                              "Nilai Gula Darah : ${responseDataGulaDarah.toString()}");
+                          DataKlinis dataklinis = DataKlinis(
                             user!.uid.toString(),
                             namaController.text,
                             int.tryParse(ageController.text) ?? 0,
@@ -375,7 +373,8 @@ class _RealtimeDataWidgetState extends State<RealtimeDataWidget> {
                             Timestamp.now(),
                           );
                           dataKlinisProvider.createDataKlinis(dataklinis);
-                    }, child: Text("Simpan Diagnosa"))
+                        },
+                        child: Text("Simpan Diagnosa"))
                   ],
                 ),
               ),
